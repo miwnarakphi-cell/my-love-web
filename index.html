@@ -85,7 +85,7 @@
 <body>
 
 <header>
-  <h1>รักแฟนที่สุดด ❤️</h1>
+  <h1>แฟนของฉัน ❤️</h1>
 </header>
 
 <main>
@@ -117,7 +117,7 @@
     lightbox.style.display = 'none';
   }
 
-  // หัวใจลอยเต็มจอ + emoji ไม่ซ้ำ
+  // หัวใจลอยเต็มจอ + emoji ไม่ซ้ำ + ขนาดใหญ่ขึ้น
   const heartEmojisDefault = ['❤️','💖','💘','💝','💞','💕','💟'];
   let heartEmojis = [...heartEmojisDefault];
 
@@ -134,7 +134,7 @@
     // สุ่มตำแหน่งเต็มจอ
     heart.style.left = Math.random() * (window.innerWidth - 30) + 'px';
     heart.style.top = Math.random() * (window.innerHeight - 30) + 'px';
-    heart.style.fontSize = (16 + Math.random() * 30) + 'px';
+    heart.style.fontSize = (24 + Math.random() * 40) + 'px'; // ขนาดใหญ่ขึ้น
 
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 3000);

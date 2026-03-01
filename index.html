@@ -14,41 +14,46 @@ body {
   background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
 }
 
-/* ===== ข้อความด้านบน ===== */
+/* ===== ข้อความ ===== */
 header {
   text-align: center;
-  padding-top: 40px;
-  animation: fadeDown 1.5s ease;
+  padding: 40px 20px 10px;
+  animation: fadeDown 1.2s ease;
 }
 
 header h1 {
-  font-size: 60px;
+  font-size: 50px;
   color: #ff2e63;
   text-shadow: 0 0 10px #ff9ab5, 0 0 20px #ffb3c6;
+  margin: 0;
 }
 
-/* ===== รูปตรงกลาง ===== */
+/* ===== ส่วนรูป ===== */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  padding: 20px;
 }
 
 .collage {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .collage img {
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 42vw;
+  max-width: 280px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  transition: transform 0.4s ease;
 }
 
 .collage img:nth-child(1) {
-  transform: rotate(-6deg);
+  transform: rotate(-5deg);
 }
 
 .collage img:nth-child(2) {
@@ -56,27 +61,21 @@ main {
 }
 
 .collage img:hover {
-  transform: rotate(0deg) scale(1.1);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  transform: rotate(0deg) scale(1.05);
 }
 
 /* ===== หัวใจลอย ===== */
 .heart {
   position: fixed;
   bottom: -50px;
-  font-size: 20px;
   animation: floatUp linear infinite;
   opacity: 0.8;
   pointer-events: none;
 }
 
 @keyframes floatUp {
-  from {
-    transform: translateY(0) rotate(0deg);
-  }
-  to {
-    transform: translateY(-110vh) rotate(360deg);
-  }
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-110vh) rotate(360deg); }
 }
 
 /* ===== Animation ข้อความ ===== */
@@ -109,8 +108,8 @@ function createHeart() {
   heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
 
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (20 + Math.random() * 30) + "px";
-  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+  heart.style.fontSize = (20 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 3) + "s";
 
   document.body.appendChild(heart);
 
@@ -119,7 +118,7 @@ function createHeart() {
   }, 8000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart, 400);
 </script>
 
 </body>

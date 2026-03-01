@@ -8,11 +8,11 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    /* พื้นหลังหวานขึ้น */
-    background: linear-gradient(135deg, #ffd6e8, #ffeaf4, #fff0f7);
+    background: linear-gradient(to bottom right, #ffcccc, #ffe6e6);
     overflow-x: hidden;
   }
 
+  /* ข้อความอยู่ข้างบน */
   header {
     text-align: center;
     padding: 40px 0;
@@ -23,15 +23,13 @@
     text-shadow: 2px 2px 10px #ff99aa;
   }
 
+  /* รูป collage */
   main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: calc(100vh - 120px);
-    position: relative;
-    z-index: 2; /* รูปอยู่ชั้นบน */
   }
-
   .collage {
     display: flex;
     gap: 40px;
@@ -50,6 +48,7 @@
     box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
   }
 
+  /* Lightbox */
   #lightbox {
     position: fixed;
     display: none;
@@ -69,15 +68,13 @@
     border-radius: 10px;
   }
 
-  /* หัวใจอยู่ข้างหลังรูป */
+  /* หัวใจลอยเต็มจอ */
   .heart {
     position: absolute;
     animation: floatUp 3s linear forwards;
     opacity: 0.8;
     pointer-events: none;
-    z-index: 0; /* อยู่หลังรูป */
   }
-
   @keyframes floatUp {
     0% { transform: translateY(0) scale(1); opacity:0.8; }
     50% { transform: translateY(-50px) scale(1.2); opacity:1; }
@@ -88,7 +85,7 @@
 <body>
 
 <header>
-  <h1>น่ารักกก 🤍👉🏻👈🏻</h1>
+  <h1>น่ารักกกก 👉🏻👈🏻</h1>
 </header>
 
 <main>
@@ -98,11 +95,13 @@
   </div>
 </main>
 
+<!-- Lightbox -->
 <div id="lightbox" onclick="closeLightbox()">
   <img src="" id="lightbox-img">
 </div>
 
 <script>
+  // Lightbox
   const collageImgs = document.querySelectorAll('.collage img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
@@ -118,6 +117,7 @@
     lightbox.style.display = 'none';
   }
 
+  // หัวใจลอยเต็มจอ + emoji ไม่ซ้ำ + ขนาดใหญ่ขึ้น
   const heartEmojisDefault = ['❤️','💖','💘','💝','💞','💕','💟'];
   let heartEmojis = [...heartEmojisDefault];
 
@@ -125,14 +125,16 @@
     const heart = document.createElement('div');
     heart.className = 'heart';
     
+    // สุ่ม emoji ไม่ซ้ำ
     const emojiIndex = Math.floor(Math.random() * heartEmojis.length);
     heart.textContent = heartEmojis[emojiIndex];
-    heartEmojis.splice(emojiIndex, 1);
+    heartEmojis.splice(emojiIndex, 1); // เอาออกเพื่อไม่ซ้ำ
     if(heartEmojis.length === 0) heartEmojis = [...heartEmojisDefault];
 
+    // สุ่มตำแหน่งเต็มจอ
     heart.style.left = Math.random() * (window.innerWidth - 30) + 'px';
     heart.style.top = Math.random() * (window.innerHeight - 30) + 'px';
-    heart.style.fontSize = (24 + Math.random() * 40) + 'px';
+    heart.style.fontSize = (24 + Math.random() * 40) + 'px'; // ขนาดใหญ่ขึ้น
 
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 3000);

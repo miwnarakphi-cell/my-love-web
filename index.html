@@ -5,10 +5,11 @@
 <title>แฟนของฉัน ❤️</title>
 <style>
   body {
-    background: linear-gradient(to bottom right, #ffcccc, #ffe6e6);
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #ffcccc, #ffe6e6);
+    overflow-x: hidden;
   }
 
   /* ข้อความอยู่ข้างบน */
@@ -19,17 +20,16 @@
   header h1 {
     font-size: 70px;
     color: #ff3366;
-    text-shadow: 2px 2px 5px #ff99aa;
+    text-shadow: 2px 2px 10px #ff99aa;
   }
 
-  /* รูปอยู่กลางจอ */
+  /* รูป collage */
   main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 120px); /* เอาพื้นที่เต็มหน้าจอ ลบ header */
+    height: calc(100vh - 120px);
   }
-
   .collage {
     display: flex;
     gap: 40px;
@@ -39,16 +39,47 @@
     border: 2px solid black;
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
   }
-  .collage img:nth-child(1) {
-    transform: rotate(-7deg);
-  }
-  .collage img:nth-child(2) {
-    transform: rotate(5deg);
-  }
+  .collage img:nth-child(1) { transform: rotate(-7deg); }
+  .collage img:nth-child(2) { transform: rotate(5deg); }
   .collage img:hover {
     transform: rotate(0deg) scale(1.1);
     box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+  }
+
+  /* Lightbox */
+  #lightbox {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top:0; left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+  }
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.6);
+    border: 3px solid white;
+    border-radius: 10px;
+  }
+
+  /* ลูกเล่นหัวใจ */
+  .heart {
+    position: absolute;
+    font-size: 24px;
+    color: #ff3366;
+    animation: floatUp 3s linear infinite;
+    opacity: 0.8;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity:0.8; }
+    50% { transform: translateY(-50px) scale(1.2); opacity:1; }
+    100% { transform: translateY(-100px) scale(1); opacity:0; }
   }
 </style>
 </head>
@@ -64,6 +95,40 @@
     <img src="pic2.jpg" alt="แฟน2">
   </div>
 </main>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img src="" id="lightbox-img">
+</div>
+
+<script>
+  // Lightbox
+  const collageImgs = document.querySelectorAll('.collage img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  collageImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  // สร้างหัวใจลอย
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.fontSize = (16 + Math.random() * 24) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+  }, 500);
+</script>
 
 </body>
 </html>

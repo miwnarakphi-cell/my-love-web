@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>แฟนที่รักกก ❤️</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .collage {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+    .collage img {
+      position: absolute;
+      width: 200px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px white;
+      transition: transform 0.3s;
+    }
+    .collage img:hover {
+      transform: scale(1.1) rotate(5deg);
+      z-index: 10;
+    }
+    .img1 { top: 0; left: 0; transform: rotate(-10deg); }
+    .img2 { top: 100px; left: 100px; transform: rotate(15deg); }
+  </style>
+</head>
+<body>
+  <div class="collage">
+    <img src="images/pic1.jpg" class="img1">
+    <img src="images/pic2.jpg" class="img2">
+  </div>
+</body>
+</html>

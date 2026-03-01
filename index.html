@@ -5,30 +5,29 @@
 <title>แฟนของฉัน ❤️</title>
 <style>
   body {
-    background-color: white;  
+    background: linear-gradient(to bottom right, #ffcccc, #ffe6e6); /* พื้นหลังแนวความรัก */
     margin: 0;
     padding: 0;
-    height: 100vh;              /* ให้ body ครอบจอเต็มแนวตั้ง */
-    display: flex;               /* ใช้ flex จัดตรงกลาง */
-    flex-direction: column;      
-    justify-content: center;     /* แนวตั้ง */
-    align-items: center;         /* แนวนอน */
-    font-family: Arial, sans-serif;
     text-align: center;
+    font-family: Arial, sans-serif;
   }
   h1 {
-    font-size: 50px;
-    margin-bottom: 40px;
-    color: black;
+    font-size: 70px;           /* ข้อความใหญ่ */
+    margin-top: 40px;          /* อยู่ข้างบน */
+    color: #ff3366;            /* สีแดงชมพู */
+    text-shadow: 2px 2px 5px #ff99aa; /* เงาเล็ก ๆ ให้เด่น */
   }
   .collage {
     display: flex;
-    gap: 40px;                  /* เว้นระยะระหว่างรูป */
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
   }
   .collage img {
-    width: 400px;               /* ขนาดพอดี */
+    width: 400px;               /* ขนาดรูปเหมือนเดิม */
     border: 2px solid black;
-    transition: transform 0.3s;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4); /* เพิ่มเงา */
+    transition: transform 0.3s, box-shadow 0.3s;
   }
   .collage img:nth-child(1) {
     transform: rotate(-7deg);
@@ -37,7 +36,8 @@
     transform: rotate(5deg);
   }
   .collage img:hover {
-    transform: rotate(0deg) scale(1.1); /* hover ขยายเล็กน้อย */
+    transform: rotate(0deg) scale(1.1);
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5); /* เงาเข้มขึ้นเวลา hover */
   }
 </style>
 </head>

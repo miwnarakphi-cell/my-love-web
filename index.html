@@ -2,25 +2,48 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>My Love Web</title>
+<title>แฟนของเด้กก ❤️</title>
 <style>
   body {
-    background-color: white; /* พื้นหลังขาว */
-    text-align: center;       /* จัดกลางหน้า */
+    background-color: white;  /* พื้นหลังขาว */
+    text-align: center;        /* จัดกลางหน้า */
     font-family: Arial, sans-serif;
   }
-  img {
-    width: 300px;             /* ขนาดรูป */
-    margin: 20px;             /* เว้นระยะระหว่างรูป */
+  h1 {
+    font-size: 50px;           /* ข้อความใหญ่ */
+    margin-top: 20px;
+    color: black;
+  }
+  .collage {
+    display: flex;
+    justify-content: center;
+    gap: 40px;                 /* เว้นระยะระหว่างรูป */
+    margin-top: 30px;
+  }
+  .collage img {
+    width: 250px;              /* ขนาดรูป */
+    border: 2px solid black;
+    transition: transform 0.3s;
+  }
+  .collage img:nth-child(1) {
+    transform: rotate(-7deg);  /* เอียงรูปแรก */
+  }
+  .collage img:nth-child(2) {
+    transform: rotate(5deg);   /* เอียงรูปสอง */
+  }
+  .collage img:hover {
+    transform: rotate(0deg) scale(1.1); /* hover ขยาย + หมุนตรง */
   }
 </style>
 </head>
 <body>
-  <h1>น่ารักอ่าาาาาาาาาา</h1>
 
-  <!-- รูปแฟน -->
+<h1>แฟนของเด้กกก ❤️</h1>
+
+<div class="collage">
   <img src="pic1.jpg" alt="แฟน1">
   <img src="pic2.jpg" alt="แฟน2">
+</div>
 
 </body>
 </html>

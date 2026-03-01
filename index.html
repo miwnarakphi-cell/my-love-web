@@ -68,25 +68,24 @@
     border-radius: 10px;
   }
 
-  /* ลูกเล่นหัวใจ */
+  /* หัวใจลอยเต็มจอ */
   .heart {
     position: absolute;
-    font-size: 24px;
-    color: #ff3366;
-    animation: floatUp 3s linear infinite;
+    animation: floatUp 3s linear forwards;
     opacity: 0.8;
+    pointer-events: none;
   }
   @keyframes floatUp {
     0% { transform: translateY(0) scale(1); opacity:0.8; }
     50% { transform: translateY(-50px) scale(1.2); opacity:1; }
-    100% { transform: translateY(-100px) scale(1); opacity:0; }
+    100% { transform: translateY(-120px) scale(1); opacity:0; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>แฟนของฉัน ❤️</h1>
+  <h1>รักแฟนที่สุดด ❤️</h1>
 </header>
 
 <main>
@@ -118,16 +117,28 @@
     lightbox.style.display = 'none';
   }
 
-  // สร้างหัวใจลอย
+  // หัวใจลอยเต็มจอ + emoji ไม่ซ้ำ
+  const heartEmojisDefault = ['❤️','💖','💘','💝','💞','💕','💟'];
+  let heartEmojis = [...heartEmojisDefault];
+
   setInterval(() => {
     const heart = document.createElement('div');
     heart.className = 'heart';
-    heart.textContent = '❤️';
-    heart.style.left = Math.random() * window.innerWidth + 'px';
-    heart.style.fontSize = (16 + Math.random() * 24) + 'px';
+    
+    // สุ่ม emoji ไม่ซ้ำ
+    const emojiIndex = Math.floor(Math.random() * heartEmojis.length);
+    heart.textContent = heartEmojis[emojiIndex];
+    heartEmojis.splice(emojiIndex, 1); // เอาออกเพื่อไม่ซ้ำ
+    if(heartEmojis.length === 0) heartEmojis = [...heartEmojisDefault];
+
+    // สุ่มตำแหน่งเต็มจอ
+    heart.style.left = Math.random() * (window.innerWidth - 30) + 'px';
+    heart.style.top = Math.random() * (window.innerHeight - 30) + 'px';
+    heart.style.fontSize = (16 + Math.random() * 30) + 'px';
+
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 3000);
-  }, 500);
+  }, 400);
 </script>
 
 </body>

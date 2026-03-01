@@ -13,20 +13,20 @@
   }
   h1 {
     font-size: 70px;           /* ข้อความใหญ่ */
-    margin-top: 40px;          /* อยู่ข้างบน */
-    color: #ff3366;            /* สีแดงชมพู */
-    text-shadow: 2px 2px 5px #ff99aa; /* เงาเล็ก ๆ ให้เด่น */
+    margin-top: 20px;          /* อยู่ข้างบน */
+    color: #ff3366;
+    text-shadow: 2px 2px 5px #ff99aa;
   }
   .collage {
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-top: 30px;
+    margin-top: 50px;           /* เว้นระยะจากข้อความ แต่ยังอยู่แนวนอนกลางจอ */
   }
   .collage img {
-    width: 400px;               /* ขนาดรูปเหมือนเดิม */
+    width: 400px;               /* ขนาดเดิม */
     border: 2px solid black;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4); /* เพิ่มเงา */
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4); /* เงาเพิ่ม */
     transition: transform 0.3s, box-shadow 0.3s;
   }
   .collage img:nth-child(1) {
@@ -37,7 +37,7 @@
   }
   .collage img:hover {
     transform: rotate(0deg) scale(1.1);
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.5); /* เงาเข้มขึ้นเวลา hover */
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
   }
 </style>
 </head>

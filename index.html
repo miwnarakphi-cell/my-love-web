@@ -6,33 +6,38 @@
 <style>
   body {
     background-color: white;  
-    text-align: center;        
+    margin: 0;
+    padding: 0;
+    height: 100vh;              /* ให้ body ครอบจอเต็มแนวตั้ง */
+    display: flex;               /* ใช้ flex จัดตรงกลาง */
+    flex-direction: column;      
+    justify-content: center;     /* แนวตั้ง */
+    align-items: center;         /* แนวนอน */
     font-family: Arial, sans-serif;
+    text-align: center;
   }
   h1 {
-    font-size: 50px;           
-    margin-top: 20px;
+    font-size: 50px;
+    margin-bottom: 40px;
     color: black;
   }
   .collage {
     display: flex;
-    justify-content: center;
-    gap: 40px;                 /* เว้นระยะระหว่างรูป */
-    margin-top: 30px;
+    gap: 40px;                  /* เว้นระยะระหว่างรูป */
   }
   .collage img {
-    width: 400px;              /* ขนาดรูปใหญ่ขึ้นจากเดิม 250px */
+    width: 400px;               /* ขนาดพอดี */
     border: 2px solid black;
     transition: transform 0.3s;
   }
   .collage img:nth-child(1) {
-    transform: rotate(-7deg);  
+    transform: rotate(-7deg);
   }
   .collage img:nth-child(2) {
-    transform: rotate(5deg);   
+    transform: rotate(5deg);
   }
   .collage img:hover {
-    transform: rotate(0deg) scale(1.1); 
+    transform: rotate(0deg) scale(1.1); /* hover ขยายเล็กน้อย */
   }
 </style>
 </head>
